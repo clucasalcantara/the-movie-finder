@@ -46,7 +46,10 @@ export default function Header() {
     <>
       <nav className="bg-[#212121] min-h-[64px] flex items-center p-4 w-full shadow-2xl sticky">
         <div className="flex items-center justify-between w-full">
-          <div className="flex items-center gap-4" onClick={() => back()}>
+          <div
+            className="flex items-center gap-4 cursor-pointer"
+            onClick={() => back()}
+          >
             {isMovieDetail && <BsArrowLeft />}
             <h1 className="font-roboto font-700 line-height-[24px]">
               {categoryTitle}

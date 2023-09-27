@@ -82,9 +82,9 @@ export default function Movie() {
           {movieDetails.original_title}
         </h1>
         {movieDetails.isFavorite ? (
-          <AiFillHeart className="text-[red]" />
+          <AiFillHeart className="text-[red]" size={30} />
         ) : (
-          <AiOutlineHeart />
+          <AiOutlineHeart size={30} />
         )}
       </div>
       <div className="flex flex-col justify-between text-black">
