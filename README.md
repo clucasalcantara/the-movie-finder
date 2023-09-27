@@ -9,7 +9,6 @@ simple frontend application
 - React
 - Alova
 - TailwindCSS
-- Zustand
 
 ## Getting Started
 
