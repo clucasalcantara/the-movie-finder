@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { useFetcher } from "alova";
-import { apiClient } from "@/lib/api ";
+import { apiClient } from "@/lib/api";
+import { useAppStore } from "@/store";
 
 export default function useTMDB() {
   const { fetch } = useFetcher({ force: false });
-  const [isLoading, setIsLoading] = useState(false);
+  const { setIsLoading } = useAppStore();
 
   return {
     getPopularMovies: async () => {
@@ -16,7 +17,7 @@ export default function useTMDB() {
 
         const data = await response.clone().json();
 
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 800);
 
         return {
           ...data,
@@ -35,7 +36,7 @@ export default function useTMDB() {
 
         const data = await response.clone().json();
 
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 800);
 
         return {
           ...data,
@@ -67,7 +68,7 @@ export default function useTMDB() {
         const data = await response.clone().json();
         const trailers = await getMovieTrailers(id);
 
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 800);
 
         return {
           ...data,
@@ -86,7 +87,7 @@ export default function useTMDB() {
 
         const data = await response.clone().json();
 
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 800);
 
         return {
           ...data,

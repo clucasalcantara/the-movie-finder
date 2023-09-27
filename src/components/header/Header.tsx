@@ -1,14 +1,15 @@
 "use client";
 
-import { useTMDB } from "@/hooks ";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-
 import { useEffect, useMemo, useState } from "react";
+// Hooks
+import { useTMDB } from "@/hooks";
+// SVGs
 import { AiOutlineMore, AiOutlineClose } from "react-icons/ai";
 import { BsArrowLeft } from "react-icons/bs";
 
-import type { Genre } from "@/lib/types ";
+import type { Genre } from "@/lib/types";
 
 export default function Header() {
   const { slug } = useParams();
@@ -43,12 +44,12 @@ export default function Header() {
   }, []);
 
   return (
-    <>
+    <div className="z-10">
       <nav className="bg-[#212121] min-h-[64px] flex items-center p-4 w-full shadow-2xl sticky">
         <div className="flex items-center justify-between w-full">
           <div
             className="flex items-center gap-4 cursor-pointer"
-            onClick={() => back()}
+            onClick={() => isMovieDetail && back()}
           >
             {isMovieDetail && <BsArrowLeft />}
             <h1 className="font-roboto font-700 line-height-[24px]">
@@ -97,6 +98,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

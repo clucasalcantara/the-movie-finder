@@ -1,12 +1,12 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { useTMDB } from "@/hooks ";
-import { useEffect, useMemo, useState } from "react";
-import { MovieGrid } from "@/components/movie-grid ";
+import { useTMDB } from "@/hooks";
+import { MovieGrid } from "@/components/movie-grid";
 
-import type { MovieDetails } from "@/lib/types ";
+import type { MovieDetails } from "@/lib/types";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -38,7 +38,7 @@ export default function Home() {
   }, [categoryId]);
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-between">
+    <section className="flex min-h-screen w-full flex-col items-center justify-between">
       <MovieGrid data={moviesList} />
     </section>
   );

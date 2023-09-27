@@ -2,23 +2,24 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 import dayjs from "dayjs";
+// SVGs
 import { HiOutlinePlayCircle } from "react-icons/hi2";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+// Config
+import { CONSTANTS } from "@/config";
+import { useTMDB, useFavorites } from "@/hooks";
+import { Spinner } from "@/components/spinner";
 
-import { useTMDB } from "../../../hooks";
-import Link from "next/link";
-import { useFavorites } from "@/hooks/use-favorites ";
-import { Spinner } from "@/components/spinner ";
-
-import type { MovieDetails } from "@/lib/types ";
+import type { MovieDetails } from "@/lib/types";
+import next from "next";
 
 type MovieDetailsProps = MovieDetails & {
   isFavorite?: boolean;
   trailers: any;
 };
-
-const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
 export default function Movie() {
   const { slug } = useParams();
@@ -89,13 +90,20 @@ export default function Movie() {
       </div>
       <div className="flex flex-col justify-between text-black">
         <div className="p-4 flex flex-row justify-between gap-4">
-          <div className="max-w-[150px] rounded-md shadow-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${IMAGE_BASE_URL}${movieDetails.poster_path}`}
-              alt={movieDetails.original_title}
-              className="rounded-md"
-            />
+          <div className="min-w-[150px] rounded-md shadow-lg">
+            {movieDetails.poster_path ? (
+              <Image
+                width={150}
+                height={225}
+                src={`${CONSTANTS.IMAGE_BASE_URL}${movieDetails.poster_path}`}
+                alt={movieDetails.original_title}
+                className="rounded-md"
+              />
+            ) : (
+              <div className="h-[225px] w-[150px] flex justify-center items-center bg-[#746A64] rounded-md bg-opacity-30">
+                <Spinner />
+              </div>
+            )}
           </div>
           <div className="w-full">
             <div className="h-full flex flex-col justify-between">
