@@ -20,12 +20,12 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
-      const { results } = await getPopularMovies();
+      const { results } = (await getPopularMovies()) || {};
       setMoviesList(results);
     };
 
     const fetchMoviesByGenre = async () => {
-      const { results } = await getMoviesByGenre(categoryId as string);
+      const { results } = (await getMoviesByGenre(categoryId as string)) || {};
       setMoviesList(results);
     };
 
