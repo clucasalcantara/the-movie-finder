@@ -12,7 +12,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import type { Genre } from "@/lib/types";
 
 export default function Header() {
-  const { slug } = useParams();
+  const { slug } = useParams() || {};
   const searchParams = useSearchParams();
   const { back } = useRouter();
   const { getGenres } = useTMDB();

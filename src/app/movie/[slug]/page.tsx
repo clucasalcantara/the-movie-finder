@@ -22,7 +22,7 @@ type MovieDetailsProps = MovieDetails & {
 };
 
 export default function Movie() {
-  const { slug } = useParams();
+  const { slug } = useParams() || {};
   const { getMovieDetails } = useTMDB();
   const { checkFavoriteStatus, addMovieToFavorites, removeMovieFromFavorites } =
     useFavorites(slug as string);
