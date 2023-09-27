@@ -118,7 +118,7 @@ export default function Movie() {
                   {movieDetails.vote_average?.toFixed(1)}/10
                 </span>
                 <div
-                  className="bg-[#746A64] rounded-md flex items-center justify-center min-h-[56px] mt-6 self-end shadow-md"
+                  className="bg-[#746A64] rounded-md flex items-center justify-center min-h-[56px] mt-6 self-end shadow-md cursor-pointer"
                   onClick={() => handleFavoriteAction()}
                 >
                   <span className="text-white font-roboto font-500 text-[16px]">
