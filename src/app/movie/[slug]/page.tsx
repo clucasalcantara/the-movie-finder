@@ -14,7 +14,6 @@ import { useTMDB, useFavorites } from "@/hooks";
 import { Spinner } from "@/components/spinner";
 
 import type { MovieDetails } from "@/lib/types";
-import next from "next";
 
 type MovieDetailsProps = MovieDetails & {
   isFavorite?: boolean;
